@@ -13,3 +13,7 @@ Allows you to [pick a strategy](https://github.com/twopirllc/pandas-ta/blob/main
 
 ## How do I run it?
 Load up [the notebook](Yahoozee.ipnb) in [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/).
+
+## Screenshots
+![backtesting](backtest.png)
+
