@@ -12,7 +12,7 @@ Allows you to [pick a strategy](https://github.com/twopirllc/pandas-ta/blob/main
 * Crypto exchange abstraction provided by [CCXT](https://ccxt.readthedocs.io/en/latest/)
 
 ## How do I run it?
-Load up [the notebook](Yahoozee.ipnb) in [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/).
+Load up [the notebook](Yahoozee.ipynb) in [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/).
 
 ## Screenshots
 ![backtesting](backtest.png)
