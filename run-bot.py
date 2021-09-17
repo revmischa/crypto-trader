@@ -12,7 +12,7 @@ from pyjuque.Bot import defineBot
 SIMULATION = False
 # how much to give the bot to play with
 # (in quote price, a.k.a. dollars)
-STARTING_BALANCE = 10
+STARTING_BALANCE = 100
 
 load_dotenv()
 
@@ -20,7 +20,7 @@ api_key = os.environ["EXCHG_API_KEY"]
 secret = os.environ["EXCHG_SECRET"]
 subaccount = os.environ["EXCHG_SUBACCOUNT"]
 exchange_config = {
-    "name": "ftx",
+    "name": "ftx",  # change me to your exchange
     "params": {"api_key": api_key, "secret": secret},
 }
 if subaccount:
@@ -36,7 +36,7 @@ def gen_config(
     initial_entry_allocation: float = 33,
 ) -> dict:
     return {
-        "name": "eth_ema_cross_optimized_v5",
+        "name": "eth_ema_cross_optimized_v1",
         "test_run": SIMULATION,
         "exchange": exchange_config,
         "symbols": [
