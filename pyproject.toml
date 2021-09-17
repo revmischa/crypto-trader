@@ -10,17 +10,18 @@ pyjuque = { git = "https://github.com/revmischa/pyjuque.git", rev = "f4aee7945eb
 python = "^3.8"
 pandas-ta = "^0.3.14-beta.0"
 TA-Lib = "0.4.19"
-hyperopt = "^0.2.5"
-matplotlib = "^3.4.3"
+hyperopt = "*"
+matplotlib = "*"
 python-dotenv = "0.15.0"
-ipywidgets = "^7.6.4"
+ipywidgets = "*"
 
 [tool.poetry.dev-dependencies]
-black = "^21.7b0"
-epc = "^0.0.5"
-importmagic = "^0.1.7"
-ipython = "^7.26.0"
-jupyterlab = "^3.1.7"
+prompt-toolkit = "^2.0.0"
+black = "*"
+epc = "*"
+importmagic = "*"
+ipython = "*"
+jupyterlab = "^3.1.11"
 python-dotenv = "0.15.0"
 
 [build-system]
