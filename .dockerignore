@@ -1,0 +1,3 @@
+*.db
+Dockerfile
+docker-compose.yml

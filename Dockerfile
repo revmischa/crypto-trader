@@ -1,30 +1,37 @@
-FROM ubuntu:21.10
+FROM python:3.9-slim as base
 
-RUN apt-get update && apt-get install -y python3 python3-pip curl
+ENV PYTHONFAULTHANDLER=1 \
+PYTHONHASHSEED=random \
+PYTHONUNBUFFERED=1
 
-# Use Python 3 for `python`, `pip`
-RUN    update-alternatives --install /usr/bin/python  python  /usr/bin/python3 1 \
-    && update-alternatives --install /usr/bin/pip     pip     /usr/bin/pip3    1
+RUN apt-get update && apt-get install -y gcc libffi-dev g++ build-essential wget git
+WORKDIR /app
 
-# Install Poetry
-RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python3 -
-ENV PATH "$PATH:/root/.local/bin/"
+FROM base as builder
 
-# Install Poetry packages (maybe remove the poetry.lock line if you don't want/have a lock file)
-COPY pyproject.toml ./
-COPY poetry.lock ./
-RUN poetry install --no-interaction
+ENV PIP_DEFAULT_TIMEOUT=100 \
+PIP_DISABLE_PIP_VERSION_CHECK=1 \
+PIP_NO_CACHE_DIR=1 \
+POETRY_VERSION=1.1.9
 
-# Provide a known path for the virtual environment by creating a symlink
-RUN ln -s $(poetry env info --path) /var/my-venv
+RUN wget https://artiya4u.keybase.pub/TA-lib/ta-lib-0.4.0-src.tar.gz
+RUN tar -xvf ta-lib-0.4.0-src.tar.gz
+RUN cd ta-lib/ && ./configure --prefix=/usr && make && make install
 
-# Clean up project files. You can add them with a Docker mount later.
-RUN rm pyproject.toml poetry.lock
+RUN pip install "poetry==$POETRY_VERSION"
+RUN python -m venv /venv
 
-# Hide virtual env prompt
-ENV VIRTUAL_ENV_DISABLE_PROMPT 1
-
-# Start virtual env when bash starts
-RUN echo 'source /var/my-venv/bin/activate' >> ~/.bashrc
+COPY pyproject.toml poetry.lock ./
+RUN . /venv/bin/activate && poetry install --no-root
 
 COPY . .
+RUN . /venv/bin/activate && poetry build
+
+FROM base as final
+
+COPY --from=builder /venv /venv
+COPY --from=builder /app/dist .
+COPY run-bot.py ./
+
+RUN . /venv/bin/activate && pip install *.whl
+CMD ["poetry", "run", "./run-bot.py"]

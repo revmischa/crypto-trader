@@ -1,0 +1,9 @@
+version: "2.3"
+services:
+  trader:
+    build:
+      context: .
+    container_name: trader
+    volumes:
+      - ./eth_ema_cross_optimized_v1.db:/app/dist/eth_ema_cross_optimized_v1.db
+    restart: unless-stopped
