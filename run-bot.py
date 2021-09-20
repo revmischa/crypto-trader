@@ -12,7 +12,7 @@ from pyjuque.Bot import defineBot
 SIMULATION = False
 # how much to give the bot to play with
 # (in quote price, a.k.a. dollars)
-STARTING_BALANCE = 100
+STARTING_BALANCE = 1000
 
 load_dotenv()
 
@@ -73,14 +73,13 @@ def params_to_bot_config(p):
 
 
 config = params_to_bot_config(
-    # profit: 0.952
+    # profit: 0.00986
     {
-        "fast_ma_len": 7.149695730704853,
-        "initial_entry_allocation": 10,
-        "signal_distance": 3.6641398766498248,
-        "slow_ma_len": 9.774269827049824,
-        "stop_loss_value": 6.8745633212360335,
-        "take_profit": 0.6475565568073818,
+        "fast_ma_len": 7.723984110583816,
+        "signal_distance": 0.09673297413983993,
+        "slow_ma_len": 6.514447627441819,
+        "stop_loss_value": 13.115218651491784,
+        "take_profit": 3.837416072341963,
     }
 )
 bot_controller = defineBot(config)

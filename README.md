@@ -12,9 +12,20 @@ Allows you to [pick a strategy](https://github.com/twopirllc/pandas-ta/blob/main
 * Crypto exchange abstraction provided by [CCXT](https://ccxt.readthedocs.io/en/latest/) - connects to any crypto exchange.
 * Parameter tuning with [hyperopt](https://github.com/hyperopt/hyperopt/) - Minimizes objective function in trading bot and strategy parameter space.
 
-## How do I run it?
+## How do I test strategies? 
 Load up [the notebook](Yahoozee.ipynb) in [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/).
 
 ## Screenshots
 ![backtesting](backtest.png)
 
+## How do I run the bot?
+Create a .env file with your exchange API key
+```env
+
+```
+
+Run ./run-bot.sh
+
+
+## Dependencies:
+`sudo apt install libssl-dev libffi-dev`
