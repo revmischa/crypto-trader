@@ -168,7 +168,7 @@ webencodings = "*"
 
 [[package]]
 name = "ccxt"
-version = "1.56.63"
+version = "1.56.67"
 description = "A JavaScript / Python / PHP cryptocurrency trading library with support for 130+ exchanges"
 category = "main"
 optional = false
@@ -1099,8 +1099,8 @@ yaspin = "1.2.0"
 [package.source]
 type = "git"
 url = "https://github.com/revmischa/pyjuque.git"
-reference = "f4aee7945ebf374736c3d091dd8cbe29165d4c41"
-resolved_reference = "f4aee7945ebf374736c3d091dd8cbe29165d4c41"
+reference = "c6d79acd2baaf675e0ff4ba2a591956489ba478a"
+resolved_reference = "c6d79acd2baaf675e0ff4ba2a591956489ba478a"
 
 [[package]]
 name = "pyparsing"
@@ -1522,7 +1522,7 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "4f70efc43afd341315a112c2c027bd0f7d4265b00b63ca34583687354194bb48"
+content-hash = "eacf487f277f04852d3995ff4629ccdcd6d475c41b4ac4142fcf73dda19e57ac"
 
 [metadata.files]
 aiodns = [
@@ -1618,8 +1618,8 @@ bleach = [
     {file = "bleach-4.1.0.tar.gz", hash = "sha256:0900d8b37eba61a802ee40ac0061f8c2b5dee29c1927dd1d233e075ebf5a71da"},
 ]
 ccxt = [
-    {file = "ccxt-1.56.63-py2.py3-none-any.whl", hash = "sha256:753b24b9b3c130c542d25f3d7772c83f17087ae922e164453fbf33b33958cb96"},
-    {file = "ccxt-1.56.63.tar.gz", hash = "sha256:671065a85abe5db3d8eba41959a61ad17954f71444f8894e160081e4be0b71af"},
+    {file = "ccxt-1.56.67-py2.py3-none-any.whl", hash = "sha256:78b9a1563ee2c0854bd8356413a04dd280fdf471743bee368c076167bf67908b"},
+    {file = "ccxt-1.56.67.tar.gz", hash = "sha256:02298d8ac1def1c9b2183c739358cbe74f6451b0c60d39a33c77e8cd8bcb1e05"},
 ]
 certifi = [
     {file = "certifi-2021.5.30-py2.py3-none-any.whl", hash = "sha256:50b1e4f8446b06f41be7dd6338db18e0990601dce795c2b1686458aa7e8fa7d8"},
