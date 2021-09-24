@@ -21,11 +21,11 @@ Load up [the notebook](Yahoozee.ipynb) in [JupyterLab](https://jupyterlab.readth
 ## How do I run the bot?
 Create a .env file with your exchange API key
 ```env
-
+EXCHG_API_KEY=daJF91jf9soq01j9wwl
+EXCHG_SECRET=8ABC9130181DEB9131
+#EXCHG_SUBACCOUNT=trader
 ```
 
-Run ./run-bot.sh
+Run ./run-bot.py
 
-
-## Dependencies:
-`sudo apt install libssl-dev libffi-dev`
+For more details about building and running the bot see the Dockerfile.
