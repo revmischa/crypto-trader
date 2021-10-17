@@ -7,13 +7,16 @@ authors = ["Mischa Spiegelmock <me@mish.dev>"]
 [tool.poetry.dependencies]
 #pyjuque = "^0.1.1"
 pyjuque = { git = "https://github.com/revmischa/pyjuque.git", rev = "c6d79acd2baaf675e0ff4ba2a591956489ba478a" }
-python = "^3.7"
+python = ">=3.7.1,<4.0"
 pandas-ta = "^0.3.14-beta.0"
 TA-Lib = "0.4.19"
 hyperopt = "*"
 matplotlib = "*"
 python-dotenv = "0.15.0"
 ipywidgets = "*"
+scikit-learn = "^1.0"
+scikit-optimize = "^0.9.0"
+pandas = "1.2.5"
 
 [tool.poetry.dev-dependencies]
 prompt-toolkit = "^2.0.0"

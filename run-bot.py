@@ -30,10 +30,9 @@ if subaccount:
 def gen_config(
     StratClass,
     params: Dict[str, float],
-    signal_distance: float = 0.3,
-    take_profit: float = 4,
-    stop_loss_value: float = 6,
-    initial_entry_allocation: float = 33,
+    signal_distance: float,
+    take_profit: float,
+    stop_loss_value: float,
 ) -> dict:
     return {
         "name": "eth_ema_cross_optimized_v1",
@@ -42,12 +41,12 @@ def gen_config(
         "symbols": [
             "ETH-PERP",
         ],
-        "sleep": 60,
+        "sleep": 15,
         "starting_balance": STARTING_BALANCE,
         "strategy": {"class": StratClass, "params": params},
-        "timeframe": "1m",
+        "timeframe": "15s",
         "entry_settings": {
-            "initial_entry_allocation": initial_entry_allocation,
+            "initial_entry_allocation": 5,
             "signal_distance": signal_distance,  # pct under buy signal to place order
             "leverage": 1,
         },
