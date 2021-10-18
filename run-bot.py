@@ -7,6 +7,11 @@ import os
 from typing import Dict
 from trader.strategy.ema_cross import EMACross
 from pyjuque.Bot import defineBot
+import sys
+from pathlib import Path
+
+sys.path.append(Path(__file__).parent)
+
 
 # trade for reals?
 SIMULATION = False
@@ -26,6 +31,8 @@ exchange_config = {
 if subaccount:
     exchange_config["params"]["headers"] = {"FTX-SUBACCOUNT": subaccount}
 
+db_url = os.environ.get("DATABASE_URL", "sqlite:///trader.db")
+
 
 def gen_config(
     StratClass,
@@ -37,6 +44,7 @@ def gen_config(
 ) -> dict:
     return {
         "name": "eth_ema_cross_optimized_v1",
+        "db_url": db_url,
         "test_run": SIMULATION,
         "exchange": exchange_config,
         "symbols": [

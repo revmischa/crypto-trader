@@ -34,11 +34,11 @@ WORKDIR /src
 COPY pyproject.toml poetry.lock /src/
 RUN poetry export --dev --without-hashes --no-interaction --no-ansi -f requirements.txt -o requirements.txt
 RUN pip3 install --prefix=/runtime --force-reinstall -r requirements.txt
-COPY . .
 
 FROM base AS runtime
 COPY --from=builder /runtime /usr/local
-COPY . /app
+COPY run-bot.py /app/
+COPY trader /app/trader
 WORKDIR /app
 
 CMD python3 run-bot.py
