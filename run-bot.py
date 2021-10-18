@@ -39,7 +39,7 @@ def gen_config(
     params: Dict[str, float],
     signal_distance: float,
     take_profit: float,
-    stop_loss_value: float,
+    stop_loss_value: float = 80,
 ) -> dict:
     return {
         "name": "eth_ema_cross_optimized_v1",
@@ -91,22 +91,26 @@ config = params_to_bot_config(
 bot_controller = defineBot(config)
 exchange = bot_controller.exchange
 
+tty = False
+
 
 def run_bot():
     while True:
         bot_controller.executeBot()
-        bot_controller.status_printer.start()
+        if tty:
+            bot_controller.status_printer.start()
         left_to_sleep = config["sleep"]
         while left_to_sleep > 0:
             if bot_controller.status_printer != None:
                 open_orders = bot_controller.bot_model.getOpenOrders(
                     bot_controller.session
                 )
-                bot_controller.status_printer.text = (
-                    "Open Orders: {}   |   Checking signals in {}".format(
-                        len(open_orders), left_to_sleep
+                if tty:
+                    bot_controller.status_printer.text = (
+                        "Open Orders: {}   |   Checking signals in {}".format(
+                            len(open_orders), left_to_sleep
+                        )
                     )
-                )
             time.sleep(1)
             left_to_sleep -= 1
 
