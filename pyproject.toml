@@ -27,6 +27,7 @@ ipython = "*"
 jupyterlab = "^3.1.11"
 python-dotenv = "0.15.0"
 snakeviz = "^2.1.0"
+packaging = "20.5"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
