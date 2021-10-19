@@ -17,7 +17,7 @@ sys.path.append(Path(__file__).parent)
 SIMULATION = False
 # how much to give the bot to play with
 # (in quote price, a.k.a. dollars)
-STARTING_BALANCE = 1000
+STARTING_BALANCE = 10000
 
 load_dotenv()
 
