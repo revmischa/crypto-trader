@@ -80,13 +80,13 @@ def params_to_bot_config(p):
 
 
 config = params_to_bot_config(
-    # return: %100.11
+    # return: %100.128
     {
-        "fast_ma_len": 10,
-        "slow_ma_len": 25,
-        "signal_distance": 0.23830934982112092,
-        "take_profit": 0.22694390140793347,
-        "stop_loss_value": 0.1542487982665819,
+        "fast_ma_len": 4,
+        "slow_ma_len": 31,
+        "signal_distance": 0.11230040089793383,
+        "take_profit": 0.5535549416457292,
+        "stop_loss_value": 2.8214539425307237,
     }
 )
 bot_controller = defineBot(config)
