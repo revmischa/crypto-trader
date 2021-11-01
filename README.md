@@ -16,6 +16,7 @@ Allows you to [pick a strategy](https://github.com/twopirllc/pandas-ta/blob/main
 Load up [the notebook](strategize-skopt.ipynb) in [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/).
 
 ## Screenshots
+<img width="886" alt="Live trading" src="https://user-images.githubusercontent.com/245131/139648359-22c86796-3064-4cd6-aa8e-455bf4951d8a.png">
 ![backtesting](backtest.png)
 
 ## How do I run the bot?
