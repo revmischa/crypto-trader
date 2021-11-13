@@ -4,6 +4,8 @@ Automating crypto trading with python.
 ## What is this?
 A jupyter notebook to demonstrate automating crypto trading. Includes defining a strategy with automated parameter tuning and backtesting.
 
+Please [read my article describing how it works](https://spiegelmock.com/2021/11/09/how-to-trade-crypto-in-your-sleep-with-python/) for more details and how to use it yourself.
+
 ## How does it work?
 Allows you to [pick a strategy](https://github.com/twopirllc/pandas-ta/blob/main/examples/PandasTA_Strategy_Examples.ipynb) and optimize the parameters to the trading bot and strategy automatically. Different parameters are tried and net profit calculated during backtesting.
 
