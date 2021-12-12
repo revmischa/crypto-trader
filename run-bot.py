@@ -29,7 +29,7 @@ exchange_config = {
     "params": {"api_key": api_key, "secret": secret},
 }
 if subaccount:
-    exchange_config["params"]["headers"] = {"FTX-SUBACCOUNT": subaccount}
+    exchange_config["params"]["headers"] = {"FTXUS-SUBACCOUNT": subaccount}
 
 db_url = os.environ.get("DATABASE_URL", "sqlite:///trader-v4.db")
 
@@ -46,7 +46,9 @@ def gen_config(
         "db_url": db_url,
         "test_run": SIMULATION,
         "exchange": exchange_config,
-        "symbols": ["ETH/USD",],
+        "symbols": [
+            "ETH/USD",
+        ],
         "sleep": 15,
         "starting_balance": STARTING_BALANCE,
         "strategy": {"class": StratClass, "params": params},
@@ -105,8 +107,10 @@ def run_bot():
                     bot_controller.session
                 )
                 if tty:
-                    bot_controller.status_printer.text = "Open Orders: {}   |   Checking signals in {}".format(
-                        len(open_orders), left_to_sleep
+                    bot_controller.status_printer.text = (
+                        "Open Orders: {}   |   Checking signals in {}".format(
+                            len(open_orders), left_to_sleep
+                        )
                     )
             time.sleep(1)
             left_to_sleep -= 1
