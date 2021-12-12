@@ -25,13 +25,13 @@ api_key = os.environ["EXCHG_API_KEY"]
 secret = os.environ["EXCHG_SECRET"]
 subaccount = os.environ["EXCHG_SUBACCOUNT"]
 exchange_config = {
-    "name": "ftx",  # change me to your exchange
+    "name": "ftxus",  # change me to your exchange https://github.com/ccxt/ccxt
     "params": {"api_key": api_key, "secret": secret},
 }
 if subaccount:
     exchange_config["params"]["headers"] = {"FTX-SUBACCOUNT": subaccount}
 
-db_url = os.environ.get("DATABASE_URL", "sqlite:///trader-v3.db")
+db_url = os.environ.get("DATABASE_URL", "sqlite:///trader-v4.db")
 
 
 def gen_config(
@@ -46,15 +46,13 @@ def gen_config(
         "db_url": db_url,
         "test_run": SIMULATION,
         "exchange": exchange_config,
-        "symbols": [
-            "ETH-PERP",
-        ],
+        "symbols": ["ETH/USD",],
         "sleep": 15,
         "starting_balance": STARTING_BALANCE,
         "strategy": {"class": StratClass, "params": params},
         "timeframe": "15s",
         "entry_settings": {
-            "initial_entry_allocation": 50,
+            "initial_entry_allocation": 30,
             "signal_distance": signal_distance,  # pct under buy signal to place order
             "leverage": 2,
         },
@@ -107,10 +105,8 @@ def run_bot():
                     bot_controller.session
                 )
                 if tty:
-                    bot_controller.status_printer.text = (
-                        "Open Orders: {}   |   Checking signals in {}".format(
-                            len(open_orders), left_to_sleep
-                        )
+                    bot_controller.status_printer.text = "Open Orders: {}   |   Checking signals in {}".format(
+                        len(open_orders), left_to_sleep
                     )
             time.sleep(1)
             left_to_sleep -= 1
